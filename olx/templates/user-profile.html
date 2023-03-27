@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{%load static%}
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="{%static 'css/style.css'%}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   </head>
+   <body>
+      <div class="bg-img">
+         <div class="content">
+            <header>Enter details!!</header>
+            {%if messages%}
+              {%for msg in messages%}
+                <div class="row">
+                 <div class="col-1"></div>
+                 <div class="col-10">
+                    {{msg}}
+                 </div>
+                 <div class="col-1"></div>
+                </div>
+              {%endfor%}
+            {%endif%}
+    
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                {{form.errors}}
+            </div>
+            <div class="col-1"></div>
+            
+          </div>
+            <form action="#" method="post" enctype="multipart/form-data" >
+               {%csrf_token%}
+              
+                  
+              
+               <div class="field space">
+                  <span class="fa fa-phone"></span>
+                  <input type="text" required placeholder="Phone " name="phone" value={{user.phone}}>
+               </div>
+               <div class="field space">
+                  <span class="fa fa-house"></span>
+                  <input type="text" required placeholder="Address" name="address" value={{user.address}}>
+               </div>
+               <div class="field space" >
+                  <span class="fa fa-image" ></span>
+                  <input type="file" class="space" required placeholder="" name="profile">
+               </div>
+           
+               
+               <div class="field" style="margin-top: 20px;">
+                  <input type="submit" value="Update">
+               </div>
+            </form>
+           
+            
+         </div>
+      </div>
+      
+   
+   </body>
+</html>

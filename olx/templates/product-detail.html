@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+{%block body%}
+
+{%load static%}
+    <section class="py-5 mt-3  " style="background-color: rgb(249, 176, 176);">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                
+                <div class="col-md-6">
+                    {%if product.photo%}
+                    <img class="card-img-top mb-5 mb-md-0" src="{{product.photo.url}}" alt="..." /></div>
+                    {%else%}
+                    <img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                    {%endif%}
+                    
+                <div class="col-md-6">
+                    <div class="small mb-1">owner={{product.owner}}</div>
+                    <h1 class="display-5 fw-bolder">{{product.name}}</h1>
+                    <div class="fs-5 mb-5">
+                        <!-- <span class="text-decoration-line-through">price</span> -->
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i>{{product.price}}</span>
+                    </div>
+                    <p class="text-light"><h4>Description:{{product.description}}</h4></p>
+                    <p class="lead text-light"><h4>condition:<i class="fa-solid fa-left-right"></i> {{product.condition}}</h4></p>
+                    <p class="lead text-light">location:{{product.location}}</p>
+                    <div class="d-flex ">
+                        <a class="btn btn-outline-black flex-shrink-0 " href="#">
+                            <h3>{{product.status}}</h3>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <div >
+                                <button class="btn btn-outline-light form-control-lg col-md-6" type="submit">chat with seller</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+{%endblock%}
